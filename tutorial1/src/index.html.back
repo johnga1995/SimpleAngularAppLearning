@@ -1,0 +1,72 @@
+	<!-- Ng-model and ng-bind example -->
+	<textarea ng-model="name">Enter Text:</textarea> 
+	<div>Hello {{name}}</div>
+	<div>Adding 10+10={{10+10}}</div>
+	<div>Multiplying 24*5={{24*5}}</div>
+	<p></p>
+	<!-- Ng-Init example -->
+	<div ng-init="lang='C++'">
+		Enter: <input type="text" ng-model="lang">
+		Your Preferred Language: {{lang}}
+	</div>
+	<p></p>
+	<!-- ng-repeat -->
+	<div ng-init="people=[{name:'Juan', age:'22'},{name:'Sebastian', age:'21'},{name:'Miguel', age:'23'}]">
+		<p ng-repeat="person in people">
+			Name: {{person.name}} Age: {{person.age}}.
+		</p>
+		<!-- ordered list -->
+		<ol>
+			<li ng-repeat="person in people">
+				Name: {{person.name}} Age: {{person.age}}.
+			</li>
+		</ol>
+		<!-- unordered list -->
+		<ul>
+			<li ng-repeat="person in people">
+				Name: {{person.name}} Age: {{person.age}}.
+			</li>
+		</ul>
+	</div>
+
+	<!-- MVC practice -->
+	
+	Model: how the application behaves with the data
+	View: whatever is visible to the user
+	Controller: the coding which would act between model and view.
+		
+		model <- Controller -> View
+	
+
+	<div ng-controller="myCntrl">
+	 	Select your favourite food:
+	 	<button ng-click="rice()">Rice</button>
+	 	<button ng-click="noodles()">Noodles</button>
+	 	<button ng-click="chicken()">Chicken</button>
+	 	<h1>You have selected: {{food}} </h1>
+	</div>
+	<script type="text/javascript" src="./controllers.js"></script>
+	
+	<!-- Filters tutorial -->
+	<div ng-controller="myCntrl2">
+	 	Enter Name:<input type="text" ng-model="name">
+		Welcome {{name | uppercase }}!
+		<p>
+		Enter Currency:<input type="text" ng-model="curr">
+		Your currency {{curr | currency }}
+
+		<ol>
+			<li ng-repeat="pet in pets">
+				Type: {{pet.type}} Breed: {{pet.breed}}.
+			</li>
+		</ol>
+	</div>
+	<p></p>
+	<p></p>
+	<!--  NG-include  tutorial-->
+	<div ng-include="'home.html'">
+		
+	</div>
+
+	<!-- routing: route urls on client side with simple steps -->
+	<div ng-view=""></div>
